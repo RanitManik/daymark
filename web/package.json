@@ -2,6 +2,16 @@
   "name": "@daymark/web",
   "version": "0.0.1",
   "private": true,
+  "nx": {
+    "targets": {
+      "typecheck": {
+        "command": "tsc --noEmit",
+        "options": {
+          "cwd": "web"
+        }
+      }
+    }
+  },
   "dependencies": {
     "@tailwindcss/postcss": "^4.2.2",
     "next": "~16.1.6",

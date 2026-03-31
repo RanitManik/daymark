@@ -3,3 +3,10 @@
 /coverage
 /.nx/cache
 /.nx/workspace-data
+/node_modules
+.next
+out-tsc
+test-output
+build
+package-lock.json
+.next-env.d.ts

@@ -2,7 +2,20 @@
   "name": "@daymark/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev": "nx dev @daymark/web",
+    "build": "nx build @daymark/web",
+    "build:all": "nx run-many -t build",
+    "start": "nx start @daymark/web",
+    "lint": "nx run-many -t lint",
+    "lint:fix": "nx run-many -t lint --fix",
+    "test": "nx run-many -t test",
+    "test:coverage": "nx run-many -t test --coverage",
+    "e2e": "nx e2e @daymark/web-e2e",
+    "typecheck": "nx run-many -t typecheck",
+    "format": "prettier --write \"**/*.{js,ts,tsx,json,md,scss,css}\"",
+    "format:check": "prettier --check \"**/*.{js,ts,tsx,json,md,scss,css}\""
+  },
   "private": true,
   "devDependencies": {
     "@eslint/js": "^9.8.0",
