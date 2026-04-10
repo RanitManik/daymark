@@ -57,6 +57,16 @@
       "options": {
         "targetName": "test"
       }
+    },
+    {
+      "plugin": "@naxodev/gonx",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "testTargetName": "test",
+        "lintTargetName": "lint",
+        "tidyTargetName": "tidy"
+      }
     }
   ],
   "neverConnectToCloud": true,

@@ -19,6 +19,7 @@
   "private": true,
   "devDependencies": {
     "@eslint/js": "^9.8.0",
+    "@naxodev/gonx": "^3.0.0",
     "@next/eslint-plugin-next": "^16.1.6",
     "@nx/devkit": "22.6.3",
     "@nx/eslint": "22.6.3",
