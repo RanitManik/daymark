@@ -3,18 +3,28 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "nx dev @daymark/web",
-    "build": "nx build @daymark/web",
-    "build:all": "nx run-many -t build",
-    "start": "nx start @daymark/web",
+    "dev": "concurrently \"nx run web:dev\" \"nx run api:serve\"",
+    "dev:web": "nx dev web",
+    "dev:api": "nx serve api",
+    "build": "nx run-many -t build",
+    "build:web": "nx build web",
+    "build:api": "nx build api",
+    "start": "concurrently \"nx run web:start\" \"nx run api:serve\"",
+    "start:web": "nx start web",
+    "start:api": "nx serve api",
     "lint": "nx run-many -t lint",
+    "lint:web": "nx lint web",
+    "lint:api": "nx lint api",
     "lint:fix": "nx run-many -t lint --fix",
     "test": "nx run-many -t test",
+    "test:web": "nx test web",
+    "test:api": "nx test api",
     "test:coverage": "nx run-many -t test --coverage",
-    "e2e": "nx e2e @daymark/web-e2e",
+    "e2e": "nx e2e e2e",
     "typecheck": "nx run-many -t typecheck",
-    "format": "prettier --write \"**/*.{js,ts,tsx,json,md,scss,css}\"",
-    "format:check": "prettier --check \"**/*.{js,ts,tsx,json,md,scss,css}\""
+    "typecheck:web": "nx typecheck web",
+    "format": "prettier --write \"**/*.{js,ts,tsx,json,md,scss,css}\" && nx tidy api",
+    "format:check": "prettier --check \"**/*.{js,ts,tsx,json,md,scss,css}\" && nx tidy api && git diff --exit-code api/go.mod api/go.sum"
   },
   "private": true,
   "devDependencies": {
@@ -40,6 +50,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "babel-jest": "^30.0.2",
+    "concurrently": "^9.2.1",
     "eslint": "^9.8.0",
     "eslint-config-next": "^16.1.6",
     "eslint-config-prettier": "^10.0.0",
@@ -62,7 +73,7 @@
   "workspaces": [
     "packages/*",
     "web",
-    "web-e2e"
+    "e2e"
   ],
   "dependencies": {
     "next": "~16.1.6",

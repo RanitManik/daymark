@@ -1,10 +1,11 @@
 {
-  "name": "@daymark/web-e2e",
+  "name": "e2e",
   "version": "0.0.1",
   "private": true,
   "nx": {
     "implicitDependencies": [
-      "@daymark/web"
+      "web",
+      "api"
     ]
   }
 }

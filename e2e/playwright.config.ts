@@ -22,13 +22,21 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
-  /* Run your local dev server before starting the tests */
-  webServer: {
-    command: 'npx nx run @daymark/web:dev',
-    url: 'http://localhost:3000',
-    reuseExistingServer: true,
-    cwd: workspaceRoot,
-  },
+  /* Run web and api servers before starting the tests */
+  webServer: [
+    {
+      command: 'npx nx run web:dev',
+      url: 'http://localhost:3000',
+      reuseExistingServer: !process.env['CI'],
+      cwd: workspaceRoot,
+    },
+    {
+      command: 'npx nx run api:serve',
+      url: 'http://localhost:8080',
+      reuseExistingServer: !process.env['CI'],
+      cwd: workspaceRoot,
+    },
+  ],
   projects: [
     {
       name: 'chromium',
